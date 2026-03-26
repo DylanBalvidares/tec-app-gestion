@@ -136,14 +136,20 @@ async function modificarDni(id, dni) {
   }
 }
 
-async function modificarAlumno(alumno) {}
+async function modificarCursoAlumno(id, curso_id) {
+
+}
+
+async function modificarAlumno(alumno) { }
 
 export {
   obtenerTodosAlumnos,
   obtenerAlumno,
   crearAlumno,
+  eliminarAlumno,
   modificarNombre,
   modificarApellido,
   modificarDni,
+  modificarCursoAlumno,
   modificarAlumno,
 };
