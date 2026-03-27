@@ -1,6 +1,6 @@
-import { sequelize } from "../../db/conexionDB";
+import { sequelize } from "../../db/conexionDB.js";
 import { DataTypes } from "sequelize";
-import Alumno from "./alumnos-model";
+import Alumno from "./alumnos-model.js";
 
 const Asistencia = sequelize.define("Asistencia", {
   id_asistencia: {

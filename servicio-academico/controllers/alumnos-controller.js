@@ -1,10 +1,10 @@
-import Alumno from "../models/alumnos-model";
+import Alumno from "../models/alumnos-model.js";
 
 async function obtenerTodosAlumnos() {
   try {
     const alumno = await Alumno.findAll();
 
-    if (query.length === 0) {
+    if (alumno.length === 0) {
       throw new Error("No se encontraron alumnos");
     }
 
@@ -137,10 +137,21 @@ async function modificarDni(id, dni) {
 }
 
 async function modificarCursoAlumno(id, curso_id) {
-
+  try {
+    const alumno = await Alumno.update(
+      {
+        id_curso: curso_id,
+      },
+      {
+        where: {
+          id_alumno: id,
+        },
+      },
+    );
+  } catch (error) {}
 }
 
-async function modificarAlumno(alumno) { }
+async function modificarAlumno(alumno) {}
 
 export {
   obtenerTodosAlumnos,

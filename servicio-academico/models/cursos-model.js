@@ -1,7 +1,7 @@
-import { sequelize } from "../../db/conexionDB";
+import { sequelize } from "../../db/conexionDB.js";
 import { DataTypes } from "sequelize";
 
-const Curso = sequelize.define("Curso", {
+const Curso = sequelize.define("cursos", {
   id_curso: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -10,16 +10,17 @@ const Curso = sequelize.define("Curso", {
 
   nombre_curso: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 
   turno: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 
   aula: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
 });
 

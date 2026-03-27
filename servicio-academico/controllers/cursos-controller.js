@@ -1,4 +1,4 @@
-import Curso from "../models/cursos-model";
+import Curso from "../models/cursos-model.js";
 
 async function crearCurso(curso) {
   try {

@@ -1,8 +1,8 @@
-import { sequelize } from "../../db/conexionDB";
+import { sequelize } from "../../db/conexionDB.js";
 import { DataTypes } from "sequelize";
-import Curso from "./cursos-model";
+import Curso from "./cursos-model.js";
 
-const Alumno = sequelize.define("Alumno", {
+const Alumno = sequelize.define("alumnos", {
   id_alumno: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -10,30 +10,30 @@ const Alumno = sequelize.define("Alumno", {
   },
   nombre: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   apellido: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   dni: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 
   //FOREIGN KEY
   id_curso: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
-      model: "Curso",
+      model: "cursos",
       key: "id_curso",
     },
   },
 });
 
 Alumno.hasOne(Curso, {
-  foreignKey: "id_curso_fk",
+  foreignKey: "id_curso",
 });
 
 export default Alumno;
