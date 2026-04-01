@@ -2,13 +2,14 @@ import "dotenv/config";
 import { Sequelize } from "sequelize";
 
 console.log("=== URL:", process.env.DATABASE_URL);
-
-const DATABASE = process.env.DATABASE_URL;
-const USER = process.env.DATABASE_USER;
-const PWD = process.env.DATABASE_PASSWORD;
+console.log("=== DATABASE NAME:", process.env.DATABASE_NAME);
+console.log("=== PASSWORD:", process.env.DATABASE_PASSWORD);
 
 export const sequelize = new Sequelize(
-  "mysql://root:@localhost:3306/gestion_tecnica2",
+  //"mysql://root:@localhost:3306/gestion_tecnica2",
+  process.env.DATABASE_NAME,
+  process.env.DATABASE_USER,
+  process.env.DATABASE_PASSWORD,
   {
     dialect: "mysql",
     logging: console.log,
@@ -26,5 +27,5 @@ sequelize
     console.log("=== ¡La conexion a la BD es CORRECTA! ===");
   })
   .catch(() => {
-    console.log("=== ¡La conexion a la BD es ERRONEA! ===");
+    console.log("=== ¡La conexion a la BD FALLO! ===");
   });

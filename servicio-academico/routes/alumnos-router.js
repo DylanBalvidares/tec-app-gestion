@@ -28,7 +28,7 @@ alumnosRouter.get("/alumnos", async (req, res) => {
     const alumnos = await obtenerTodosAlumnos();
     return res.statusCode(200).json(alumnos);
   } catch (error) {
-    return res.statusCode(404).json(error);
+    return res.json(error).statusCode(404);
   }
 });
 
